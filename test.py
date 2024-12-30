@@ -14,7 +14,7 @@ total_llms = 27
 assigned_questions = questions_instance.distribute_questions(num_questions_per_llm, total_llms)
 
 # Function to write all LLM questions to a single file
-def save_all_llms_to_file(assigned_questions, filename="llm_questions_output.txt"):
+def save_all_llms_to_file(assigned_questions, filename="focus_group.txt"):
     with open(filename, "w") as file:
         for i, questions in enumerate(assigned_questions, start=1):
             file.write(f"LLM {i} Questions:\n")

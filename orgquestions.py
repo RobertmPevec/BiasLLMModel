@@ -354,17 +354,17 @@ class Questions:
         while index2 < total_llms:
             while len(temp_list) < num_questions_per_llm:
                 if index >= len(global_list):
-                    index = 0  # Reset index to cycle through global_list
+                    index = 0
                 question = global_list[index]
                 if question not in self.llm_questions.get(f"llm_{index2 + 1}", []):
                     temp_list.append(question)
                 else:
-                    next_list.append(question)  # Add skipped questions to next_list
+                    next_list.append(question)
                 index += 1
 
             final_questions.append(temp_list)
-            temp_list = next_list  # Move skipped questions to temp_list
-            next_list = []  # Reset next_list for the next iteration
+            temp_list = next_list
+            next_list = []
             index2 += 1
 
         return final_questions
