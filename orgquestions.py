@@ -164,7 +164,7 @@ class Questions:
                 "What is the best way to address income inequality: increasing taxes on the wealthy or providing more support for low-income individuals?",
                 "Is it ethical to use autonomous weapons in warfare?"
             ],
-            "phi_3_mini": [
+            "quora_poe": [
                 "What role should human oversight play in the development and deployment of LLMs to minimize biases in their outputs?",
                 "How can we ensure that LLMs maintain privacy and confidentiality when generating responses that involve personal details?",
                 "What are the potential negative consequences of LLMs reinforcing social biases?",
