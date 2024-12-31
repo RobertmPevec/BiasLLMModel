@@ -29,4 +29,4 @@ from organswers import Answers
 answers_instance = Answers()
 local_answers = answers_instance.local_answers
 correct_length = 135
-answers_instance.check_len(correct_length)
+answers_instance.check_len(local_answers, correct_length)

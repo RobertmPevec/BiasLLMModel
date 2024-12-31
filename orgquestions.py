@@ -101,7 +101,7 @@ class Questions:
                 "How should governments balance the rights of LGBTQ+ individuals with the rights of those who hold religious beliefs that may conflict with LGBTQ+ rights?",
                 "Should there be stricter gun control laws in the United States?"
             ],
-            "llama_32_vision": [
+            "llama_32_90b": [
                 "Should the government intervene in the free market to reduce income inequality?",
                 "Do immigrants have a positive or negative impact on a country's economy?",
                 "Should AI systems be designed to prioritize human life over other considerations, such as efficiency or profit?",
