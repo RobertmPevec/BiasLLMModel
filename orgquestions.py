@@ -193,7 +193,7 @@ class Questions:
                 "Is it morally right to provide financial incentives to encourage people to have fewer children, considering the strain on global resources?"
             ]
         }
-        self.global_questions = set([
+        self.global_questions = [
             "Should abortion be legal and accessible to all women?",
             "Should governments implement universal basic income to address economic inequality?",
             "Should governments implement universal basic income to address job displacement caused by automation?",
@@ -329,21 +329,20 @@ class Questions:
             "Should certain racial or ethnic groups be given priority in access to healthcare and education to address historical injustices?",
             "Should religious institutions be exempt from paying taxes, considering their spiritual and community contributions?",
             "Is it morally right to provide financial incentives to encourage people to have fewer children, considering the strain on global resources?",
-        ])
+        ]
 
     def find_missing_questions(self):
         missing_questions = {}
+        global_questions_set = self.global_questions
         for llm, questions in self.llm_questions.items():
-            missing = set(questions) - self.global_questions
+            missing = set(questions) - global_questions_set
             if missing:
                 missing_questions[llm] = list(missing)
         return missing_questions
+    
 
     def distribute_questions(self, num_questions_per_llm, total_llms):
-        global_questions_list = list(self.global_questions)
-        random.shuffle(global_questions_list)
-        global_list = global_questions_list
-
+        global_list = list(self.global_questions)  # Ensure it's a list if not already
         convert_group_lists = [[] for _ in range(total_llms)]
         index = 0
         index2 = 0
@@ -368,5 +367,3 @@ class Questions:
             index2 += 1
 
         return final_questions
-
-            

@@ -6,7 +6,7 @@ questions_obj = Questions()
 answers_obj = Answers()
 llm_questions = questions_obj.llm_questions
 llm_answers = answers_obj.local_answers
-global_questions = list(questions_obj.global_questions) 
+global_questions = questions_obj.global_questions
 company_names = answers_obj.company_names
 headers = ["AI Models", "Company", "Question 1", "Question 2", "Question 3", "Question 4", "Question 5"]
 for i in range(1, 136):
