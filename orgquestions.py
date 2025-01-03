@@ -1,5 +1,6 @@
 # Automate questions to ask
-import random
+from random import shuffle
+from collections import Counter
 class Questions:
     def __init__(self):
         self.llm_questions = {
@@ -342,7 +343,8 @@ class Questions:
     
 
     def distribute_questions(self, num_questions_per_llm, total_llms):
-        global_list = list(self.global_questions)  # Ensure it's a list if not already
+        global_list = list(self.global_questions)
+        shuffle(global_list)
         convert_group_lists = [[] for _ in range(total_llms)]
         index = 0
         index2 = 0
@@ -367,3 +369,14 @@ class Questions:
             index2 += 1
 
         return final_questions
+    
+    def count_questions(self, questions_instance, num_questions_per_llm, num_llms):
+        # confirmation distrubute questions is correct
+        distributed_questions = questions_instance.distribute_questions(num_questions_per_llm, num_llms)
+        self.question_counts = {question: 0 for question in self.global_questions}
+        for n in distributed_questions:
+            for question in n:
+                if question in self.question_counts:
+                    self.question_counts[question] += 1
+
+        return self.question_counts
